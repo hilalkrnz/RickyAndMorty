@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.rickyandmorty.presentation.component.CharacterUiComponent xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/character_component"
-    android:layout_width="180dp"
-    android:layout_height="180dp"
-    android:layout_marginStart="@dimen/space_16"
-    android:layout_marginTop="@dimen/space_16"/>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/space_200"
+    android:layout_height="@dimen/space_200">
+
+    <com.example.rickyandmorty.presentation.component.CharacterUiComponent
+        android:id="@+id/character_component"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/space_8"
+        android:layout_marginTop="@dimen/space_8" />
+
+</FrameLayout>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.favorite.love.LoveFragment">
+    tools:context=".presentation.status.love.LoveFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/love_character_recyclerview"
@@ -12,6 +12,6 @@
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
-        tools:listitem="@layout/adapter_character_item"/>
+        tools:listitem="@layout/adapter_character_item" />
 
 </FrameLayout>

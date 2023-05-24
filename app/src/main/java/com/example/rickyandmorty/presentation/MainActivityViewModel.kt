@@ -16,17 +16,6 @@ class MainActivityViewModel @Inject constructor(): ViewModel() {
     private val _isBottomBarVisible = MutableLiveData(false)
     val isBottomBarVisible: LiveData<Boolean> get() = _isBottomBarVisible
 
-//    private val _isLoading = MutableLiveData(true)
-//    val isLoading : LiveData<Boolean> get() = _isLoading
-//
-//    init {
-//        viewModelScope.launch {
-//            delay(3000)
-//            _isLoading.value = false
-//        }
-//    }
-
-
     fun setBottomBarVisibility(isVisible: Boolean) {
         _isBottomBarVisible.value = isVisible
     }

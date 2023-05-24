@@ -2,8 +2,8 @@ package com.example.rickyandmorty.di.database
 
 import android.content.Context
 import androidx.room.Room
-import com.example.rickyandmorty.data.database.FavoriteCharacterDatabase
 import com.example.rickyandmorty.data.database.HateCharacterDatabase
+import com.example.rickyandmorty.data.database.LoveCharacterDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,17 +17,17 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideFavoriteCharacterDatabase(
+    fun provideLoveCharacterDatabase(
         @ApplicationContext app: Context
     ) = Room.databaseBuilder(
         app,
-        FavoriteCharacterDatabase::class.java,
-        "favorite_character_database"
+        LoveCharacterDatabase::class.java,
+        "love_character_database"
     ).build()
 
     @Provides
     @Singleton
-    fun providesFavoriteCharacterDb(database: FavoriteCharacterDatabase) = database.getFavoriteCharacterDao()
+    fun providesLoveCharacterDb(database: LoveCharacterDatabase) = database.getLoveCharacterDao()
 
 
     @Provides

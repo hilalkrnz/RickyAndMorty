@@ -1,10 +1,11 @@
-package com.example.rickyandmorty.presentation.favorite.hate
+package com.example.rickyandmorty.presentation.status.hate
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -12,6 +13,7 @@ import com.example.rickyandmorty.R
 import com.example.rickyandmorty.data.database.HateCharacter
 import com.example.rickyandmorty.databinding.FragmentHateBinding
 import com.example.rickyandmorty.databinding.LayoutAlertDialogBinding
+import com.example.rickyandmorty.presentation.status.StatusUiState
 import com.example.rickyandmorty.utility.fragmentViewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,8 +37,20 @@ class HateFragment : Fragment(R.layout.fragment_hate) {
     }
 
     private fun observeHateCharacters() {
-        viewModel.getHateCharacters.observe(viewLifecycleOwner) {
-            handleHateCharacters(it)
+        viewModel.getHateCharacters.observe(viewLifecycleOwner) { statusUiState ->
+            when(statusUiState) {
+                is StatusUiState.Failure -> {
+                    Toast.makeText(
+                        requireContext(),
+                        getString(statusUiState.message),
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+                is StatusUiState.Loading -> {}
+                is StatusUiState.Success -> {
+                    statusUiState.data?.let { handleHateCharacters(it) }
+                }
+            }
         }
     }
 

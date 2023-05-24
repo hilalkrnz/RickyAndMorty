@@ -6,9 +6,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
-@Entity(tableName = "favorite_character")
+@Entity(tableName = "love_character")
 @Parcelize
-data class FavoriteCharacter(
+data class LoveCharacter(
     @ColumnInfo(name = "character_id") val characterId: Int,
     @ColumnInfo(name = "character_name") val characterName: String?,
     @ColumnInfo(name = "character_image") val characterImage: String?

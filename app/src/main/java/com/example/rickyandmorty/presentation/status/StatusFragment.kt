@@ -1,23 +1,21 @@
-package com.example.rickyandmorty.presentation.favorite
+package com.example.rickyandmorty.presentation.status
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import com.example.rickyandmorty.R
-import com.example.rickyandmorty.databinding.FragmentFavoriteBinding
+import com.example.rickyandmorty.databinding.FragmentStatusBinding
 import com.example.rickyandmorty.presentation.MainActivityViewModel
-import com.example.rickyandmorty.presentation.signin.SignInFragmentDirections
 import com.example.rickyandmorty.utility.HATE
 import com.example.rickyandmorty.utility.LOVE
 import com.example.rickyandmorty.utility.ToolbarTitle
 import com.example.rickyandmorty.utility.fragmentViewBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
-class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
+class StatusFragment : Fragment(R.layout.fragment_status) {
 
-    private val binding by fragmentViewBinding(FragmentFavoriteBinding::bind)
+    private val binding by fragmentViewBinding(FragmentStatusBinding::bind)
     private val activityViewModel: MainActivityViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,14 +24,14 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
         activityViewModel.setBottomBarVisibility(true)
 
 
-        initFavoriteToolbarComponent()
+        initStatusToolbarComponent()
         setTabLayout()
     }
 
-    private fun initFavoriteToolbarComponent() {
-        binding.favoriteToolbarComponent.setOnlyToolbarTitleVisibilityAndTitleText(
+    private fun initStatusToolbarComponent() {
+        binding.statusToolbarComponent.setOnlyToolbarTitleVisibilityAndTitleText(
             true,
-            ToolbarTitle.FAVORITE.toolbarTitle
+            ToolbarTitle.STATUS.toolbarTitle
         )
     }
 

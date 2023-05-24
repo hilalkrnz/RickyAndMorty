@@ -1,4 +1,4 @@
-package com.example.rickyandmorty.presentation.favorite.hate
+package com.example.rickyandmorty.presentation.status.hate
 
 import android.view.ViewGroup
 import com.example.rickyandmorty.data.database.HateCharacter

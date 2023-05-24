@@ -1,13 +1,12 @@
-package com.example.rickyandmorty.domain.repository
+package com.example.rickyandmorty.data.source.local
 
 import com.example.rickyandmorty.data.NetworkResponseState
 import com.example.rickyandmorty.data.database.HateCharacter
-import kotlinx.coroutines.flow.Flow
 
-interface HateCharacterRepository {
+interface LocalHateDataSource {
+
     suspend fun addToHate(hateCharacter: HateCharacter)
-    fun getHateCharacters(): Flow<NetworkResponseState<List<HateCharacter>>>
+    fun getHateCharacters(): NetworkResponseState<List<HateCharacter>>
     suspend fun checkHateCharacter(id: String): Int
     suspend fun removeFromHate(id: String): Int
-
 }

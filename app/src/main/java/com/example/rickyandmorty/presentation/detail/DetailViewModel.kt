@@ -6,14 +6,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rickyandmorty.R
 import com.example.rickyandmorty.data.NetworkResponseState
-import com.example.rickyandmorty.data.database.FavoriteCharacter
+import com.example.rickyandmorty.data.database.LoveCharacter
 import com.example.rickyandmorty.data.database.HateCharacter
 import com.example.rickyandmorty.domain.model.CharacterUiData
-import com.example.rickyandmorty.domain.repository.FavoriteCharacterRepository
+import com.example.rickyandmorty.domain.repository.LoveCharacterRepository
 import com.example.rickyandmorty.domain.repository.HateCharacterRepository
 import com.example.rickyandmorty.domain.usecase.GetCharacterByIdUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -21,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailViewModel @Inject constructor(
     private val getCharacterByIdUseCase: GetCharacterByIdUseCase,
-    private val favoriteCharacterRepository: FavoriteCharacterRepository,
+    private val loveCharacterRepository: LoveCharacterRepository,
     private val hateCharacterRepository: HateCharacterRepository
 ) : ViewModel() {
 
@@ -54,9 +53,9 @@ class DetailViewModel @Inject constructor(
     }
 
     fun addToFavorite(character: CharacterUiData) {
-        viewModelScope.launch(Dispatchers.IO) {
-            favoriteCharacterRepository.addToFavorite(
-                FavoriteCharacter(
+        viewModelScope.launch {
+            loveCharacterRepository.addToLove(
+                LoveCharacter(
                     characterId = character.id!!,
                     characterName = character.name,
                     characterImage = character.image
@@ -67,19 +66,19 @@ class DetailViewModel @Inject constructor(
 
     fun checkFavoriteCharacter(id: String) {
         viewModelScope.launch {
-            val count = favoriteCharacterRepository.checkFavoriteCharacter(id)
+            val count = loveCharacterRepository.checkLoveCharacter(id)
             _isFavorite.postValue(count > 0)
         }
     }
 
     fun removeFromFavorite(favoriteId: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            favoriteCharacterRepository.removeFromFavorite(favoriteId)
+        viewModelScope.launch {
+            loveCharacterRepository.removeFromLove(favoriteId)
         }
     }
 
     fun addToHate(character: CharacterUiData) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             hateCharacterRepository.addToHate(
                 HateCharacter(
                     characterId = character.id!!,
@@ -91,14 +90,14 @@ class DetailViewModel @Inject constructor(
     }
 
     fun checkHateCharacter(hateId: String) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             val count = hateCharacterRepository.checkHateCharacter(hateId)
             _isHate.postValue(count > 0)
         }
     }
 
     fun removeFromHate(hateId: String) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             hateCharacterRepository.removeFromHate(hateId)
         }
     }

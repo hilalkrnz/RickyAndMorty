@@ -1,16 +1,11 @@
 package com.example.rickyandmorty.presentation.component
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
-import coil.ImageLoader
-import coil.request.ImageRequest
-import coil.request.SuccessResult
-import com.example.rickyandmorty.data.database.FavoriteCharacter
+import com.example.rickyandmorty.data.database.LoveCharacter
 import com.example.rickyandmorty.data.database.HateCharacter
 import com.example.rickyandmorty.databinding.LayoutCharacterBinding
 import com.example.rickyandmorty.domain.model.CharacterUiData
@@ -33,9 +28,9 @@ class CharacterUiComponent @JvmOverloads constructor(
         binding.characterName.text = characterUiData.name
     }
 
-    fun setFavoriteCharacterData(favoriteCharacter: FavoriteCharacter) {
-        binding.characterName.text = favoriteCharacter.characterName
-        binding.characterImage.loadImage(favoriteCharacter.characterImage)
+    fun setLoveCharacterData(loveCharacter: LoveCharacter) {
+        binding.characterName.text = loveCharacter.characterName
+        binding.characterImage.loadImage(loveCharacter.characterImage)
     }
 
     fun setHateCharacterData(hateCharacter: HateCharacter) {

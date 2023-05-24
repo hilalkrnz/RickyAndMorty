@@ -34,10 +34,10 @@
             app:argType="com.example.rickyandmorty.domain.model.CharacterUiData" />
     </fragment>
     <fragment
-        android:id="@+id/favoriteFragment"
-        android:name="com.example.rickyandmorty.presentation.favorite.FavoriteFragment"
+        android:id="@+id/statusFragment"
+        android:name="com.example.rickyandmorty.presentation.status.StatusFragment"
         android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" >
+        tools:layout="@layout/fragment_status" >
         <action
             android:id="@+id/action_favoriteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />

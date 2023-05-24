@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <com.example.rickyandmorty.presentation.component.ToolbarUiComponent
-        android:id="@+id/favorite_toolbar_component"
+        android:id="@+id/status_toolbar_component"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -19,10 +19,6 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
-
-
-
-
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 </LinearLayout>

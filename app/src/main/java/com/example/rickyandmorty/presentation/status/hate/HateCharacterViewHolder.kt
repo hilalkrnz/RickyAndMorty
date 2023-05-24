@@ -1,6 +1,5 @@
-package com.example.rickyandmorty.presentation.favorite.hate
+package com.example.rickyandmorty.presentation.status.hate
 
-import androidx.recyclerview.widget.RecyclerView
 import com.example.rickyandmorty.data.database.HateCharacter
 import com.example.rickyandmorty.databinding.AdapterCharacterItemBinding
 import com.example.rickyandmorty.presentation.base.BaseViewHolder
