@@ -4,7 +4,7 @@
         <item name="android:fontFamily">@font/pangolin</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/neon_green</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/status_bar_color</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>

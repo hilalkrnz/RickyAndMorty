@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_header_remove">Are you sure you want to remove?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>

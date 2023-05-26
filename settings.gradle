@@ -14,3 +14,14 @@ dependencyResolutionManagement {
 }
 rootProject.name = "RickyAndMorty"
 include ':app'
+include ':core'
+include ':core:common'
+include ':core:data'
+include ':core:domain'
+include ':core:ui'
+include ':feature'
+include ':feature:home'
+include ':feature:detail'
+include ':feature:status'
+include ':feature:login'
+include ':navigation'

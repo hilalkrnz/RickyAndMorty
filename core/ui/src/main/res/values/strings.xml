@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="name">Name</string>
+    <string name="toolbar_text_characters">Characters</string>
+    <string name="retry">Retry</string>
+    <string name="error">Unknown error occurred</string>
+</resources>

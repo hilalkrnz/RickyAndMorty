@@ -1,16 +1,14 @@
 <resources>
     <string name="app_name">RickyAndMorty</string>
-    <string name="name">Name</string>
-    <string name="status">Status</string>
-    <string name="toolbar_text_characters">Characters</string>
-    <string name="error">Unknown error occurred</string>
+
+
+
+
     <string name="home">Home</string>
     <string name="love">Love</string>
     <string name="hate">Hate</string>
-    <string name="species">species</string>
-    <string name="retry">Retry</string>
+
+
     <string name="location">Location :</string>
-    <string name="dialog_header_remove">Are you sure you want to remove?</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
+
 </resources>

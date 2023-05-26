@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background_color">#ECF2FF</color>
+    <color name="app_color_blue">#193840</color>
+    <color name="dark_blue">#27374D</color>
+    <color name="green">#97ce4c</color>
+    <color name="transparent_background">#39000000</color>
+    <color name="gradient_dark_background">#DA000000</color>
+</resources>

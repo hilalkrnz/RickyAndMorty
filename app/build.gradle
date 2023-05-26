@@ -39,9 +39,26 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+//    android {
+//        sourceSets.debug.res.srcDirs += "$rootDir/navigation/src/main/sharedRes"
+//    }
+
+    sourceSets {
+        getByName("debug").res.srcDirs("$rootDir/navigation/src/main/sharedRes")
+    }
 }
 
 dependencies {
+    implementation project(path: ':core:data')
+    implementation project(path: ':core:common')
+    implementation project(path: ':core:domain')
+    implementation project(path: ':core:ui')
+    implementation project(path: ':feature:home')
+    implementation project(path: ':feature:detail')
+    implementation project(path: ':feature:status')
+    implementation project(path: ':feature:login')
+    implementation project(path: ':navigation')
 
     // AndroidX
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -61,7 +78,7 @@ dependencies {
     // ConstraintLayout
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
 
-    ////Google Auth
+    //Google Auth
     implementation 'com.google.android.gms:play-services-auth:20.5.0'
 
     //MongoDB Realm

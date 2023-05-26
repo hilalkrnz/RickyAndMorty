@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ScreenBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.feature.detail.DetailFragment">
+
+    <com.example.core.ui.component.ToolbarUiComponent
+        android:id="@+id/detail_toolbar_component"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.example.core.ui.component.ToolbarUiComponent>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/space_30"
+        android:layout_marginTop="@dimen/space_100"
+        android:layout_marginEnd="@dimen/space_30"
+        android:layout_marginBottom="@dimen/space_30"
+        android:background="@drawable/rounded_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_toolbar_component"
+        tools:layout_editor_absoluteX="30dp" />
+
+
+    <com.example.core.ui.component.CharacterUiComponent
+        android:id="@+id/character_component"
+        android:layout_width="@dimen/space_270"
+        android:layout_height="@dimen/space_250"
+        android:layout_margin="@dimen/space_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_toolbar_component" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/character_name_tv"
+        style="@style/TextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/size_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/character_component"
+        tools:text="@string/name" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/character_gender"
+        android:layout_width="@dimen/space_30"
+        android:layout_height="@dimen/space_30"
+        android:layout_marginTop="@dimen/space_16"
+        android:src="@drawable/unknown_gender"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/character_name_tv" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/character_species"
+        style="@style/TextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/size_20"
+        app:layout_constraintEnd_toStartOf="@+id/character_status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/character_gender"
+        tools:text="@string/species" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/character_status"
+        style="@style/TextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/size_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/character_species"
+        app:layout_constraintTop_toBottomOf="@+id/character_gender"
+        tools:text="@string/status" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_100"
+        android:scaleX="1.7"
+        android:scaleY="1.7"
+        android:src="@drawable/location_icon"
+        app:layout_constraintTop_toBottomOf="@+id/character_gender" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/character_location"
+        style="@style/TextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/size_20"
+        app:layout_constraintTop_toBottomOf="@+id/img"
+        tools:text="Earth" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/favorite_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_140"
+        android:layout_marginBottom="@dimen/space_50"
+        android:button="@drawable/love_icon_background"
+        android:scaleX="1.6"
+        android:scaleY="1.6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/hate_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/space_100"
+        android:layout_marginBottom="@dimen/space_50"
+        android:button="@drawable/hate_icon_background"
+        android:scaleX="1.6"
+        android:scaleY="1.6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
