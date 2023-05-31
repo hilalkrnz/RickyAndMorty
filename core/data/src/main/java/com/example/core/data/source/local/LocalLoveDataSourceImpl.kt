@@ -1,6 +1,6 @@
 package com.example.core.data.source.local
 
-import com.example.core.common.NetworkResponseState
+import com.example.core.common.DataResponseState
 import com.example.core.data.database.LoveCharacterDao
 import com.example.core.domain.model.entity.LoveCharacterEntity
 import javax.inject.Inject
@@ -11,12 +11,12 @@ class LocalLoveDataSourceImpl @Inject constructor(
     override suspend fun addToLove(loveCharacter: LoveCharacterEntity) =
         loveCharacterDao.addToLove(loveCharacter)
 
-    override fun getLoveCharacters(): NetworkResponseState<List<LoveCharacterEntity>> =
+    override fun getLoveCharacters(): DataResponseState<List<LoveCharacterEntity>> =
         try {
             val response = loveCharacterDao.getLoveCharacters()
-            NetworkResponseState.Success(response)
+            DataResponseState.Success(response)
         } catch (e: Exception) {
-            NetworkResponseState.Failure(e)
+            DataResponseState.Failure(e)
         }
 
     override suspend fun checkLoveCharacter(id: String) =

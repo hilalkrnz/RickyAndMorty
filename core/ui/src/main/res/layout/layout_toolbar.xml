@@ -8,30 +8,32 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:contentInsetStart="0dp"
-        android:backgroundTint="#DBDFAA">
+        android:backgroundTint="#DBDFAA"
+        app:contentInsetStart="0dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/toolbarBackIcon"
+            style="@style/ToolbarIconColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_margin="16dp"
-            style="@style/ToolbarTextColor"
             android:background="@drawable/toolbar_back_icon"
-            android:visibility="gone" />
+            android:visibility="gone"
+            tools:visibility="visible" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/toolbarTitle"
+            style="@style/ToolbarTextColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_margin="@dimen/space_16"
-            style="@style/ToolbarTextColor"
             android:textSize="@dimen/size_24"
             android:textStyle="bold"
             android:visibility="gone"
-            tools:text="@string/toolbar_text_characters" />
+            tools:text="@string/toolbar_text_characters"
+            tools:visibility="visible" />
 
     </androidx.appcompat.widget.Toolbar>
 

@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.example.core.common.MainViewModel
+import com.example.core.ui.MainViewModel
 import com.example.core.common.utils.HATE
 import com.example.core.common.utils.LOVE
 import com.example.core.ui.utility.ToolbarTitle
 import com.example.core.ui.utility.fragmentViewBinding
 import com.example.feature.status.databinding.FragmentStatusBinding
 import com.google.android.material.tabs.TabLayoutMediator
+
 
 class StatusFragment : Fragment(R.layout.fragment_status) {
 
@@ -20,11 +21,13 @@ class StatusFragment : Fragment(R.layout.fragment_status) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        activityViewModel.setBottomBarVisibility(true)
-
-
+        setBottomBarVisibility()
         initStatusToolbarComponent()
         setTabLayout()
+    }
+
+    private fun setBottomBarVisibility() {
+        activityViewModel.setBottomBarVisibility(true)
     }
 
     private fun initStatusToolbarComponent() {

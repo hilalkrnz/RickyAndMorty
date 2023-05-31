@@ -1,5 +1,6 @@
 package com.example.core.data.di.network
 
+import com.example.core.data.api.RickAndMortyApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,12 +15,11 @@ object RickAndMortyNetworkModule {
 
     @Provides
     @Singleton
-    fun provideRickAndMortyApi(): com.example.core.data.api.RickAndMortyApi {
+    fun provideRickAndMortyApi(): RickAndMortyApi {
         return Retrofit.Builder()
             .baseUrl("https://rickandmortyapi.com/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(com.example.core.data.api.RickAndMortyApi::class.java)
+            .create(RickAndMortyApi::class.java)
     }
-
 }

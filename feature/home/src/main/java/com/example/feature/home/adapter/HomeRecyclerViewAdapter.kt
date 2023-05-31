@@ -3,7 +3,7 @@ package com.example.feature.home.adapter
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import com.example.core.ui.databinding.AdapterCharacterItemBinding
-import com.example.core.ui.CharacterUiData
+import com.example.core.ui.model.CharacterUiData
 import com.example.core.ui.utility.inflateAdapterItem
 import javax.inject.Inject
 

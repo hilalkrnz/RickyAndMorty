@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class LoveFragment : Fragment(R.layout.fragment_love) {
     private val binding by fragmentViewBinding(FragmentLoveBinding::bind)
     private val viewModel by viewModels<LoveViewModel>()
-    private val loveCharacterAdapter = LoveCharacterRecyclerViewAdapter()
+    private val loveCharacterAdapter by lazy { LoveCharacterRecyclerViewAdapter() }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,6 +49,7 @@ class LoveFragment : Fragment(R.layout.fragment_love) {
                         Toast.LENGTH_LONG
                     ).show()
                 }
+
                 is StatusUiState.Loading -> {}
                 is StatusUiState.Success -> {
                     statusUiState.data?.let { handleFavoriteCharacters(it) }

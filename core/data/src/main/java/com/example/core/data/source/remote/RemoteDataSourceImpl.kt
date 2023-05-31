@@ -3,7 +3,7 @@ package com.example.core.data.source.remote
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.example.core.common.NetworkResponseState
+import com.example.core.common.DataResponseState
 import com.example.core.common.utils.NameState
 import com.example.core.common.utils.StatusState
 import com.example.core.data.api.RickAndMortyApi
@@ -14,7 +14,7 @@ import javax.inject.Inject
 class RemoteDataSourceImpl @Inject constructor(
     private val rickAndMortyApi: RickAndMortyApi
 ) : RemoteDataSource {
-    override suspend fun getAllCharacters(
+    override fun getAllCharacters(
         name: NameState,
         status: StatusState
     ): Flow<PagingData<Character>> =
@@ -29,12 +29,12 @@ class RemoteDataSourceImpl @Inject constructor(
         ).flow
 
 
-    override suspend fun getCharacterById(characterId: String): NetworkResponseState<Character> =
+    override suspend fun getCharacterById(characterId: String): DataResponseState<Character> =
         try {
             val response = rickAndMortyApi.getCharacterById(characterId)
-            NetworkResponseState.Success(response)
+            DataResponseState.Success(response)
         } catch (e: Exception) {
-            NetworkResponseState.Failure(e)
+            DataResponseState.Failure(e)
         }
 }
 

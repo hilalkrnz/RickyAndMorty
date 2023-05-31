@@ -102,7 +102,7 @@
         tools:text="Earth" />
 
     <androidx.appcompat.widget.AppCompatCheckBox
-        android:id="@+id/favorite_icon"
+        android:id="@+id/love_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/space_140"

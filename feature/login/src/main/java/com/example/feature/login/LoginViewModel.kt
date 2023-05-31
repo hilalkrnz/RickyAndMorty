@@ -18,7 +18,6 @@ class LoginViewModel @Inject constructor(
     val currentUser: LiveData<Boolean> get() = _currentUser
 
 
-
     fun getCurrentUser() {
         viewModelScope.launch {
             dataStorePreferenceRepository.getCurrentUser.collect {

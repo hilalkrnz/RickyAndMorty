@@ -1,10 +1,11 @@
 package com.example.feature.detail
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.core.common.NetworkResponseState
+import com.example.core.common.DataResponseState
 import com.example.core.common.mapper.Mapper
 import com.example.core.domain.model.CharacterDomainData
 import com.example.core.domain.model.entity.HateCharacterEntity
@@ -12,7 +13,7 @@ import com.example.core.domain.model.entity.LoveCharacterEntity
 import com.example.core.domain.repository.HateCharacterRepository
 import com.example.core.domain.repository.LoveCharacterRepository
 import com.example.core.domain.usecase.GetCharacterByIdUseCase
-import com.example.core.ui.CharacterUiData
+import com.example.core.ui.model.CharacterUiData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import com.example.core.ui.R as coreUiRes
 import kotlinx.coroutines.flow.collectLatest
@@ -30,8 +31,8 @@ class DetailViewModel @Inject constructor(
     private val _rickAndMortyDetailUiState = MutableLiveData<DetailUiState>()
     val rickAndMortyDetailUiState: LiveData<DetailUiState> get() = _rickAndMortyDetailUiState
 
-    private val _isFavorite = MutableLiveData(false)
-    val isFavorite: LiveData<Boolean> get() = _isFavorite
+    private val _isLove = MutableLiveData(false)
+    val isLove: LiveData<Boolean> get() = _isLove
 
     private val _isHate = MutableLiveData(false)
     val isHate: LiveData<Boolean> get() = _isHate
@@ -41,21 +42,22 @@ class DetailViewModel @Inject constructor(
         viewModelScope.launch {
             getCharacterByIdUseCase(characterId).collectLatest { response ->
                 when (response) {
-                    is NetworkResponseState.Failure -> {
+                    is DataResponseState.Failure -> {
                         _rickAndMortyDetailUiState.postValue(DetailUiState.Failure(coreUiRes.string.error))
                     }
-                    is NetworkResponseState.Loading -> {
+                    DataResponseState.Loading -> {
                         _rickAndMortyDetailUiState.postValue(DetailUiState.Loading)
                     }
-                    is NetworkResponseState.Success -> {
+                    is DataResponseState.Success -> {
                         _rickAndMortyDetailUiState.postValue(DetailUiState.Success(characterMapper.map(response.result)))
                     }
+                    DataResponseState.Loading -> Log.d("TAG", "Loading UI state")
                 }
             }
         }
     }
 
-    fun addToFavorite(character: CharacterUiData) {
+    fun addToLove(character: CharacterUiData) {
         viewModelScope.launch {
             loveCharacterRepository.addToLove(
                 LoveCharacterEntity(
@@ -64,19 +66,6 @@ class DetailViewModel @Inject constructor(
                     characterImage = character.image
                 )
             )
-        }
-    }
-
-    fun checkFavoriteCharacter(id: String) {
-        viewModelScope.launch {
-            val count = loveCharacterRepository.checkLoveCharacter(id)
-            _isFavorite.postValue(count > 0)
-        }
-    }
-
-    fun removeFromFavorite(favoriteId: String) {
-        viewModelScope.launch {
-            loveCharacterRepository.removeFromLove(favoriteId)
         }
     }
 
@@ -92,10 +81,23 @@ class DetailViewModel @Inject constructor(
         }
     }
 
+    fun checkLoveCharacter(id: String) {
+        viewModelScope.launch {
+            val count = loveCharacterRepository.checkLoveCharacter(id)
+            _isLove.postValue(count > 0)
+        }
+    }
+
     fun checkHateCharacter(hateId: String) {
         viewModelScope.launch {
             val count = hateCharacterRepository.checkHateCharacter(hateId)
             _isHate.postValue(count > 0)
+        }
+    }
+
+    fun removeFromLove(favoriteId: String) {
+        viewModelScope.launch {
+            loveCharacterRepository.removeFromLove(favoriteId)
         }
     }
 
@@ -104,6 +106,5 @@ class DetailViewModel @Inject constructor(
             hateCharacterRepository.removeFromHate(hateId)
         }
     }
-
 
 }

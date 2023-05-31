@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="name">Name</string>
+    <string name="toolbar_text_characters">Karakterler</string>
+    <string name="retry">Tekrar Dene</string>
+    <string name="error">Bilinmeyen hata oluştu</string>
+</resources>

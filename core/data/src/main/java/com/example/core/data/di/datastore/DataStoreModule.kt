@@ -18,12 +18,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 
-@InstallIn(ViewModelComponent::class)
+
 @Module
+@InstallIn(ViewModelComponent::class)
 object DataStoreModule {
 
     private const val USER_PREFERENCES = "user_preferences"
-
 
     @Provides
     @ViewModelScoped

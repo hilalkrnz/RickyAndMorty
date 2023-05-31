@@ -19,6 +19,7 @@
 
     <style name="ScreenBackground"><item name="android:background">@color/background_color</item></style>
     <style name="ToolbarTextColor"><item name="android:textColor">@color/app_color_blue</item></style>
+    <style name="ToolbarIconColor"><item name="android:backgroundTint">@color/app_color_blue</item></style>
 
     <style name="CustomProgressBar" parent="@style/Widget.AppCompat.ProgressBar">
         <item name="android:indeterminateTint">@color/green</item>

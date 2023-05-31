@@ -18,6 +18,4 @@ class CharacterDomainDataMapperImpl @Inject constructor() :
             location = input?.location?.name.orEmpty()
         )
     }
-
-
 }

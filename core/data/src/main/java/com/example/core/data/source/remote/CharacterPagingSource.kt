@@ -6,12 +6,13 @@ import androidx.paging.PagingState
 import com.example.core.common.utils.NameState
 import com.example.core.common.utils.ONE_VALUE
 import com.example.core.common.utils.StatusState
+import com.example.core.data.api.RickAndMortyApi
 import com.example.core.data.dto.Character
 import retrofit2.HttpException
 import java.io.IOException
 
 class CharacterPagingSource(
-    private val rickAndMortyApi: com.example.core.data.api.RickAndMortyApi,
+    private val rickAndMortyApi: RickAndMortyApi,
     private val nameState: NameState,
     private val statusState: StatusState
 ) : PagingSource<Int, Character>() {

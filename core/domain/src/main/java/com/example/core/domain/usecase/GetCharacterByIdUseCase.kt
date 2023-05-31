@@ -6,6 +6,5 @@ import javax.inject.Inject
 class GetCharacterByIdUseCase @Inject constructor(
     private val rickAndMortyRepository: RickAndMortyRepository
 ) {
-    suspend operator fun invoke(characterId: String) =
-        rickAndMortyRepository.getCharacterById(characterId)
+    operator fun invoke(characterId: String) = rickAndMortyRepository.getCharacterById(characterId)
 }

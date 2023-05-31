@@ -1,4 +1,4 @@
-package com.example.core.ui
+package com.example.core.ui.model
 
 
 import android.os.Parcelable

@@ -1,6 +1,7 @@
 package com.example.core.data.repository
 
-import com.example.core.common.NetworkResponseState
+import android.util.Log
+import com.example.core.common.DataResponseState
 import com.example.core.common.coroutine.IoDispatcher
 import com.example.core.data.source.local.LocalHateDataSource
 import com.example.core.domain.model.entity.HateCharacterEntity
@@ -22,14 +23,16 @@ class HateCharacterRepositoryImpl @Inject constructor(
             localHateDataSource.addToHate(hateCharacter)
         }
 
-    override fun getHateCharacters(): Flow<NetworkResponseState<List<HateCharacterEntity>>> =
+    override fun getHateCharacters(): Flow<DataResponseState<List<HateCharacterEntity>>> =
         flow {
-            emit(NetworkResponseState.Loading)
+
+            emit(DataResponseState.Loading)
             when (val response = localHateDataSource.getHateCharacters()) {
-                is NetworkResponseState.Failure -> emit(NetworkResponseState.Failure(response.exception))
-                is NetworkResponseState.Success -> emit(NetworkResponseState.Success(response.result))
-                else -> {}
+                is DataResponseState.Failure -> emit(DataResponseState.Failure(response.exception))
+                is DataResponseState.Success -> emit(DataResponseState.Success(response.result))
+                DataResponseState.Loading -> Log.d("TAG", "Loading hate characters response state")
             }
+
         }.flowOn(ioDispatcher)
 
 

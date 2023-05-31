@@ -2,8 +2,7 @@ package com.example.core.data.di.database
 
 import android.content.Context
 import androidx.room.Room
-import com.example.core.data.database.HateCharacterDatabase
-import com.example.core.data.database.LoveCharacterDatabase
+import com.example.core.data.database.StatusCharacterDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,26 +20,15 @@ object DatabaseModule {
         @ApplicationContext app: Context
     ) = Room.databaseBuilder(
         app,
-        LoveCharacterDatabase::class.java,
-        "love_character_database"
+        StatusCharacterDatabase::class.java,
+        "status_character_database"
     ).build()
 
     @Provides
     @Singleton
-    fun providesLoveCharacterDb(database: LoveCharacterDatabase) = database.getLoveCharacterDao()
-
-
-    @Provides
-    @Singleton
-    fun provideHateCharacterDatabase(
-        @ApplicationContext app: Context
-    ) = Room.databaseBuilder(
-        app,
-        HateCharacterDatabase::class.java,
-        "hate_character_database"
-    ).build()
+    fun providesLoveCharacterDb(database: StatusCharacterDatabase) = database.getLoveCharacterDao()
 
     @Provides
     @Singleton
-    fun providesHateCharacterDb(database: HateCharacterDatabase) = database.getHateCharacterDao()
+    fun providesHateCharacterDb(database: StatusCharacterDatabase) = database.getHateCharacterDao()
 }

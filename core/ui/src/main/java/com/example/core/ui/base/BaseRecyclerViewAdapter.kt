@@ -14,7 +14,7 @@ abstract class BaseRecyclerViewAdapter<T : Any, VH : BaseViewHolder<T>> :
         list.apply {
             clear()
             addAll(newList)
-             notifyDataSetChanged()
+            notifyDataSetChanged()
         }
     }
 

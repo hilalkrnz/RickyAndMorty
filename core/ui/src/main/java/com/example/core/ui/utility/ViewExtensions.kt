@@ -12,3 +12,4 @@ fun AppCompatImageView.loadImage(imageUrl: String?) {
         placeholder(placeholders)
     }
 }
+

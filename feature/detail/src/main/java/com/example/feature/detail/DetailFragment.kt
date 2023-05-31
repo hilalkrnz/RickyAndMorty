@@ -1,7 +1,7 @@
 package com.example.feature.detail
 
-import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -9,11 +9,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.core.common.MainViewModel
-import com.example.core.common.utils.StatusState
-import com.example.core.common.utils.FEMALE
-import com.example.core.common.utils.MALE
-import com.example.core.ui.CharacterUiData
+import com.example.core.ui.MainViewModel
+import com.example.core.ui.model.CharacterUiData
 import com.example.core.ui.utility.fragmentViewBinding
 import com.example.feature.detail.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,15 +28,16 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
         viewModel.getCharacterById(args.characterArgument.id.toString())
 
+        setBottomBarVisibility()
         initCharacterUiComponent()
         initDetailToolbarUiComponent()
         observeDetailState()
-        setBottomBarVisibility()
 
-        toggleFavoriteStatus()
+        toggleLoveStatus()
         toggleHateStatus()
 
     }
+
 
     private fun setBottomBarVisibility() {
         activityViewModel.setBottomBarVisibility(false)
@@ -67,36 +65,51 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                         Toast.LENGTH_LONG
                     ).show()
                 }
+
                 is DetailUiState.Loading -> {}
                 is DetailUiState.Success -> {
                     handleSuccessDetailUiState(detailUiState.data)
-
                 }
+
+                DetailUiState.Loading -> Log.d("TAG", "Loading detail UI state")
             }
         }
     }
 
-    private fun toggleFavoriteStatus() {
+    private fun handleSuccessDetailUiState(characterUiData: CharacterUiData?) {
+        if (characterUiData != null) {
+            binding.characterComponent.setCharacterData(characterUiData)
+            binding.characterNameTv.text = characterUiData.name
+            binding.characterLocation.text = characterUiData.location
+
+            val characterStatus = binding.characterStatus
+            characterStatus.setStatusTextColor(characterUiData.status)
+            characterStatus.text = characterUiData.status
+
+            binding.characterGender.setGenderImage(characterUiData.gender)
+            binding.characterSpecies.text = characterUiData.species
+        }
+    }
+
+    private fun toggleLoveStatus() {
         val character = args.characterArgument
-        val favoriteId = character.id.toString()
+        val loveId = character.id.toString()
 
-
-        viewModel.checkFavoriteCharacter(favoriteId)
-        viewModel.isFavorite.observe(viewLifecycleOwner) { isFavorite ->
-            binding.favoriteIcon.isChecked = isFavorite
+        viewModel.checkLoveCharacter(loveId)
+        viewModel.isLove.observe(viewLifecycleOwner) { isLove ->
+            binding.loveIcon.isChecked = isLove
         }
 
-        binding.favoriteIcon.setOnClickListener {
-            val isFavorite = binding.favoriteIcon.isChecked
-            if (isFavorite) {
-                viewModel.addToFavorite(character)
+        binding.loveIcon.setOnClickListener {
+            val isLove = binding.loveIcon.isChecked
+            if (isLove) {
+                viewModel.addToLove(character)
                 println("Add ${character.name}")
             } else {
-                viewModel.removeFromFavorite(favoriteId)
+                viewModel.removeFromLove(loveId)
                 println("Remove ${character.name}")
             }
         }
-
     }
 
     private fun toggleHateStatus() {
@@ -120,27 +133,4 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         }
     }
 
-    private fun handleSuccessDetailUiState(characterUiData: CharacterUiData?) {
-        if (characterUiData != null) {
-            binding.characterComponent.setCharacterData(characterUiData)
-            binding.characterNameTv.text = characterUiData.name
-            binding.characterLocation.text = characterUiData.location
-
-            val characterStatus = binding.characterStatus
-            when (characterUiData.status) {
-                StatusState.ALIVE.statusTitle -> characterStatus.setTextColor(Color.GREEN)
-                StatusState.DEAD.statusTitle -> characterStatus.setTextColor(Color.RED)
-                StatusState.UNKNOWN.statusTitle -> characterStatus.setTextColor(Color.BLUE)
-            }
-            characterStatus.text = characterUiData.status
-
-            val characterGender = binding.characterGender
-            when (characterUiData.gender) {
-                String.FEMALE -> characterGender.setImageResource(R.drawable.gender_female_icon)
-                String.MALE -> characterGender.setImageResource(R.drawable.gender_male_icon)
-                else -> characterGender.setImageResource(R.drawable.unknown_gender)
-            }
-            binding.characterSpecies.text = characterUiData.species
-        }
-    }
 }

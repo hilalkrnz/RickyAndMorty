@@ -9,5 +9,3 @@ data class CharacterDomainData(
     val gender: String?,
     val location: String?
 )
-
-

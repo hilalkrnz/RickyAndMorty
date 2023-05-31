@@ -49,6 +49,7 @@ class HateFragment : Fragment(R.layout.fragment_hate) {
                         Toast.LENGTH_LONG
                     ).show()
                 }
+
                 is StatusUiState.Loading -> {}
                 is StatusUiState.Success -> {
                     statusUiState.data?.let { handleHateCharacters(it) }
@@ -80,7 +81,7 @@ class HateFragment : Fragment(R.layout.fragment_hate) {
 
         alertDialogView.buttonYes.setOnClickListener {
             viewModel.removeFromHate(hateCharacter.characterId.toString())
-            viewModel.getHateCharacters()
+            println("Removed" + hateCharacter.characterName)
             alertDialog.cancel()
         }
 

@@ -8,5 +8,5 @@ import javax.inject.Inject
 class GetAllCharactersUseCase @Inject constructor(
     private val rickAndMortyRepository: RickAndMortyRepository
 ) {
-    suspend operator fun invoke(name: NameState, status: StatusState) = rickAndMortyRepository.getAllCharacters(name, status)
+    operator fun invoke(name: NameState, status: StatusState) = rickAndMortyRepository.getAllCharacters(name, status)
 }

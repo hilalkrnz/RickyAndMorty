@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
 import com.example.core.ui.databinding.LayoutCharacterBinding
-import com.example.core.ui.CharacterUiData
+import com.example.core.ui.model.CharacterUiData
 import com.example.core.ui.model.HateCharacter
 import com.example.core.ui.model.LoveCharacter
 import com.example.core.ui.utility.loadImage

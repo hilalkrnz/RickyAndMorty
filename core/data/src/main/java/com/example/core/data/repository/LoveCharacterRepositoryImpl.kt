@@ -1,6 +1,7 @@
 package com.example.core.data.repository
 
-import com.example.core.common.NetworkResponseState
+import android.util.Log
+import com.example.core.common.DataResponseState
 import com.example.core.common.coroutine.IoDispatcher
 import com.example.core.data.source.local.LocalLoveDataSource
 import com.example.core.domain.model.entity.LoveCharacterEntity
@@ -22,13 +23,13 @@ class LoveCharacterRepositoryImpl @Inject constructor(
             localLoveDataSource.addToLove(loveCharacter)
         }
 
-    override fun getLoveCharacters(): Flow<NetworkResponseState<List<LoveCharacterEntity>>> =
+    override fun getLoveCharacters(): Flow<DataResponseState<List<LoveCharacterEntity>>> =
         flow {
-            emit(NetworkResponseState.Loading)
+            emit(DataResponseState.Loading)
             when (val response = localLoveDataSource.getLoveCharacters()) {
-                is NetworkResponseState.Failure -> emit(NetworkResponseState.Failure(response.exception))
-                is NetworkResponseState.Success -> emit(NetworkResponseState.Success(response.result))
-                else -> {}
+                is DataResponseState.Failure -> emit(DataResponseState.Failure(response.exception))
+                is DataResponseState.Success -> emit(DataResponseState.Success(response.result))
+                DataResponseState.Loading -> Log.d("TAG", "Loading love characters response state")
             }
         }.flowOn(ioDispatcher)
 

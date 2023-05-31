@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.example.core.common.MainViewModel
+import com.example.core.ui.MainViewModel
 import com.example.core.ui.utility.Constants
 import com.example.core.ui.utility.fragmentViewBinding
 import com.example.feature.login.databinding.FragmentLoginBinding

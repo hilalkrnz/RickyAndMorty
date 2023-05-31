@@ -1,7 +1,7 @@
 package com.example.feature.detail
 
 import androidx.annotation.StringRes
-import com.example.core.ui.CharacterUiData
+import com.example.core.ui.model.CharacterUiData
 
 sealed class DetailUiState {
     object Loading : DetailUiState()

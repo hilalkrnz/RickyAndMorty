@@ -2,7 +2,7 @@ package com.example.feature.home
 
 import com.example.core.common.mapper.Mapper
 import com.example.core.domain.model.CharacterDomainData
-import com.example.core.ui.CharacterUiData
+import com.example.core.ui.model.CharacterUiData
 import javax.inject.Inject
 
 class CharacterUiDataMapperImpl @Inject constructor() :
@@ -18,5 +18,4 @@ class CharacterUiDataMapperImpl @Inject constructor() :
             location = input?.location?.orEmpty(),
         )
     }
-
 }
