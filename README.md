@@ -1,6 +1,6 @@
 <h1 align="center">RickAndMorty</h1>
 <p align="center">  
-Valorant Info app is a to demonstrate tech stacks with a MVVM architecture, with emphazies on Unit & UI testing.This app includes Valorant weapons and their features.
+Rick and Morty app is a to demonstrate tech stacks with a MVVM architecture.This app includes display data related to characters, episodes, and locations.
   </p>
 </br>
 
