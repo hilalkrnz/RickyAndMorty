@@ -19,14 +19,15 @@ Valorant Info app is a to demonstrate tech stacks with a MVVM architecture, with
     <td>Login</td>
     <td>Home</td>
     <td>Detail</td>
-    <td>Demo</td>
+    <td>Status</td>
    </tr> 
   <tr>
-    <td><img src="https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/08bf8863-fc19-46d3-9df4-687530dd2697" width="100%"></td>
-    <td><img src="https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/ff2dfacf-b4f4-4ea9-b01c-ab435297adef" width="100%"></td>
-    <td><img src="https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/2305c8d7-f3ec-4dc0-8357-0fbc9e7f1fd4" width="100%"></td>
-    <td><img src="https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/7637b775-bf80-4a1c-8de8-3c8b78e88f41" width="100%"></td>
-    <td><img src="https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/3085910c-5668-4903-a9e5-6c6a4b40adbc" width="100%"></td>
+    <td><img src="https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/1aa20a2a-1127-4d19-8178-4e7e0d749240" width="100%"></td>
+    <td><img src="https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/c3bd342f-5f73-4076-901a-ab891faeaf9f" width="100%"></td>
+    <td><img src="https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/48051f58-e7ec-482d-a63d-7f60a7838018" width="100%"></td>
+    <td><img src="https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/adaedb57-83b4-47fb-9931-17e37951e81e" width="100%"></td>
+    <td><img src="https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/13dc51f8-1b71-4205-b784-50d8991f2ca7" width="100%"></td>
+
    </tr>  
   </tr>
 </table>
@@ -59,14 +60,13 @@ Valorant Info app is a to demonstrate tech stacks with a MVVM architecture, with
 - [Splash Screen](https://developer.android.com/develop/ui/views/launch/splash-screen) 
 
 ## Dependency graph
-
-![Dependency graph](https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/5745cbb8-3cb1-4e32-a0ba-e059328b8575)
+![Dependency graph](https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/bae4d798-bd31-4abb-b0b1-1650c8b9e15e)
 
 ## Architecture
 
 This app uses [***MVVM (Model View View-Model)***](https://developer.android.com/jetpack/docs/guide#recommended-app-arch) architecture
 
-![mvvm](https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/d9a51b52-a83d-4d22-91ca-cd2e868f4c0c)
+![mvvm](https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/00f45fa8-79af-4452-a678-f951c8228f76)
 
 ## Open API
 The Ricky and Morty project utilizes the [Ricky and Morty API](https://rickandmortyapi.com/), a comprehensive open API that provides data about characters, episodes, and locations from the Ricky and Morty TV series.
