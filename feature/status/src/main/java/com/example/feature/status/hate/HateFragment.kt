@@ -33,7 +33,6 @@ class HateFragment : Fragment(R.layout.fragment_hate) {
         removeCharacterHateList()
 
     }
-
     private fun setupRecyclerView() {
         binding.hateCharacterRecyclerview.adapter = hateCharacterAdapter
     }

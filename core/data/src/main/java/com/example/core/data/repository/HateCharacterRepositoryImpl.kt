@@ -25,14 +25,12 @@ class HateCharacterRepositoryImpl @Inject constructor(
 
     override fun getHateCharacters(): Flow<DataResponseState<List<HateCharacterEntity>>> =
         flow {
-
             emit(DataResponseState.Loading)
             when (val response = localHateDataSource.getHateCharacters()) {
                 is DataResponseState.Failure -> emit(DataResponseState.Failure(response.exception))
                 is DataResponseState.Success -> emit(DataResponseState.Success(response.result))
                 DataResponseState.Loading -> Log.d("TAG", "Loading hate characters response state")
             }
-
         }.flowOn(ioDispatcher)
 
 

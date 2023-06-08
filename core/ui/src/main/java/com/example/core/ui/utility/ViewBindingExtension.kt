@@ -26,8 +26,8 @@ class FragmentViewBindingProperty<T : ViewBinding>(private val viewBinder: (View
     ViewBindingProperty<T>(), ReadOnlyProperty<Fragment, T> {
     override fun getValue(thisRef: Fragment, property: KProperty<*>): T {
         return binding ?: run {
-            thisRef.viewLifecycleOwnerLiveData.observe(thisRef) {
-                it.lifecycle.let {
+            thisRef.viewLifecycleOwnerLiveData.observe(thisRef) { lifecycleOwner ->
+                lifecycleOwner.lifecycle.let {
                     it.addObserver(this)
                     lifecycle = it
                 }
