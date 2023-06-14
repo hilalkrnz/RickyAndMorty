@@ -69,7 +69,7 @@ This app uses [***MVVM (Model View View-Model)***](https://developer.android.com
 ![mvvm](https://github.com/hilalkrnz/RickyAndMorty/assets/57602386/00f45fa8-79af-4452-a678-f951c8228f76)
 
 ## Open API
-The Ricky and Morty project utilizes the [Ricky and Morty API](https://rickandmortyapi.com/), a comprehensive open API that provides data about characters, episodes, and locations from the Ricky and Morty TV series.
+The Rick and Morty project utilizes the [Rick and Morty API](https://rickandmortyapi.com/), a comprehensive open API that provides data about characters, episodes, and locations from the Rick and Morty TV series.
 
 ### Connect with me :love_letter:
 
